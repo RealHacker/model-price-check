@@ -1,22 +1,21 @@
 # Model Atlas Price Lookup
 
-A lightweight, no-database web application for looking up UCloud UFSquare model token prices.
+A lightweight, no-database web application for looking up model token prices on Ali Bailian and Ucloud.
 
 The project includes:
 
 - A polished browser interface for searching model prices.
 - A TypeScript server that serves the static frontend.
-- A server-side UCloud API proxy.
-- SHA1 request signing according to the algorithm documented in `API.md`.
-- In-memory storage for the UCloud public and private keys.
-
-> The private key is kept by the server process and is not used to sign requests in the browser.
+- A server-side UCloud and Bailian API proxy.
+- SHA1 request signing according to the algorithm documented in /docs.
+- Configuration file storage for the UCloud and Bailian API keys.
 
 ## Requirements
 
 - Node.js 18 or newer
 - npm
 - A UCloud API public/private key pair
+- A Bailian API Key
 
 Node.js 18 or newer is recommended because the server uses the native `fetch` API.
 
@@ -24,7 +23,7 @@ Node.js 18 or newer is recommended because the server uses the native `fetch` AP
 
 ```text
 price-lookup/
-├── API.md         # UCloud API and signature documentation
+├── docs           # UCloud and Bailian API and signature documentation
 ├── app.js         # Browser application logic
 ├── index.html     # Static page
 ├── package.json   # npm scripts and dependencies
@@ -79,35 +78,18 @@ npm run dev
 
 Open **API settings** in the application and enter:
 
-- **Public Key** — your UCloud public key.
-- **Private Key** — your UCloud private key.
+- **Public Key** - your UCloud public key.
+- **Private Key** - your UCloud private key.
+- **BAILIAN API KEY** - your Bailian API key.
 
-When saved, the browser sends these values to the local server through `POST /api/settings`. The server stores them in memory for the current process.
-
-You can also configure credentials through environment variables before starting the server:
-
-```bash
-UCLOUD_PUBLIC_KEY=your-public-key \
-UCLOUD_PRIVATE_KEY=your-private-key \
-npm run dev
-```
-
-On Windows PowerShell:
-
-```powershell
-$env:UCLOUD_PUBLIC_KEY="your-public-key"
-$env:UCLOUD_PRIVATE_KEY="your-private-key"
-npm run dev
-```
-
-Environment variables are useful for deployments and automated startup. Values entered through the settings page replace the current in-memory values.
+When saved, the browser sends these values to the local server through `POST /api/settings`. The server stores them in a conf.json for the current process.
 
 ## Using the price lookup
 
 1. Start the server.
 2. Open `http://localhost:8787`.
 3. Open **API settings**.
-4. Enter and save your UCloud public and private keys.
+4. Enter and save your UCloud and Bailian keys if they haven't been set.
 5. Enter a model name, such as `deepseek-r1`.
 6. Choose the number of results.
 7. Click **Search prices**.
@@ -166,11 +148,6 @@ The server follows the algorithm described in `API.md`:
 5. Hash the resulting UTF-8 string with SHA1.
 6. Send the hexadecimal digest as `Signature`.
 
-For example, the documented UCloud sample produces:
-
-```text
-cba5cf5ec4d4233d206b1b54951e3787350a642f
-```
 
 ## Security notes
 
