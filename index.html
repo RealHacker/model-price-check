@@ -20,7 +20,7 @@
       <section class="hero">
         <div class="eyebrow"><span class="pulse"></span> LIVE CATALOGUE</div>
         <h1>Know the cost<br /><em>before you build.</em></h1>
-        <p class="hero-copy">Search current token pricing across the UFSquare model catalogue. One clear view for smarter model choices.</p>
+        <p class="hero-copy">Compare current model pricing across AstraFlow and Bailian. One clear view for smarter model choices.</p>
       </section>
 
       <section class="search-card">
@@ -30,11 +30,11 @@
 
       <section class="meta-row"><div><strong id="resultCount">0</strong> models found <span class="divider">/</span> <span id="lastUpdated">Ready when you are</span></div><div class="legend"><span class="legend-dot"></span> Prices in API response currency</div></section>
       <section id="status" class="status hidden"></section>
-      <section class="table-wrap"><table><thead><tr><th>MODEL</th><th>PROVIDER</th><th>CONTEXT / TIER</th><th>INPUT</th><th>OUTPUT</th><th></th></tr></thead><tbody id="results"><tr class="empty"><td colspan="6"><div class="empty-icon">⌁</div><h3>Your catalogue is waiting</h3><p>Enter a model name above to see its current token rates.</p></td></tr></tbody></table></section>
+      <section class="table-wrap"><table><thead><tr><th>MODEL</th><th>PLATFORM</th><th>CONTEXT / TIER</th><th>INPUT</th><th>OUTPUT</th><th></th></tr></thead><tbody id="results"><tr class="empty"><td colspan="6"><div class="empty-icon">⌁</div><h3>Your catalogue is waiting</h3><p>Enter a model name above to see its current token rates.</p></td></tr></tbody></table></section>
       <footer><span>MODEL ATLAS <b>·</b> UFSQUARE PRICING</span><span>Prices are returned directly from the provider API</span></footer>
     </main>
 
-    <dialog id="settingsModal"><form method="dialog" class="modal-card" id="settingsForm"><button class="modal-close" value="cancel" aria-label="Close">×</button><div class="eyebrow">PRIVATE CONNECTION</div><h2>API settings</h2><p>Store your UCloud keys locally in this browser. They are used only to sign the request made directly from this page.</p><label class="input-label" for="publicKey">PUBLIC KEY</label><div class="key-input"><input id="publicKey" type="text" placeholder="Your UCloud public key" autocomplete="off" /><button type="button" id="togglePublicKey">Clear</button></div><label class="input-label" for="privateKey" style="display:block;margin-top:18px">PRIVATE KEY</label><div class="key-input"><input id="privateKey" type="password" placeholder="Your UCloud private key" autocomplete="off" /><button type="button" id="toggleKey">Show</button></div><div class="modal-actions"><button class="secondary" value="cancel">Cancel</button><button class="primary" id="saveSettings" value="default">Save key <span>→</span></button></div></form></dialog>
+    <dialog id="settingsModal"><form method="dialog" class="modal-card" id="settingsForm"><button class="modal-close" value="cancel" aria-label="Close">×</button><div class="eyebrow">PRIVATE CONNECTION</div><h2>API settings</h2><p>Configure the credentials for each pricing platform. Keys are sent only to this local server.</p><label class="input-label" for="publicKey">ASTRAFLOW PUBLIC KEY</label><div class="key-input"><input id="publicKey" type="text" placeholder="Your UCloud public key" autocomplete="off" /><button type="button" id="togglePublicKey">Clear</button></div><label class="input-label" for="privateKey" style="display:block;margin-top:18px">ASTRAFLOW PRIVATE KEY</label><div class="key-input"><input id="privateKey" type="password" placeholder="Your UCloud private key" autocomplete="off" /><button type="button" id="toggleKey">Show</button></div><label class="input-label" for="bailianApiKey" style="display:block;margin-top:18px">BAILIAN API KEY</label><div class="key-input"><input id="bailianApiKey" type="password" placeholder="DASHSCOPE_API_KEY" autocomplete="off" /><button type="button" id="toggleBailianKey">Show</button></div><div class="modal-actions"><button class="secondary" value="cancel">Cancel</button><button class="primary" id="saveSettings" value="default">Save key <span>→</span></button></div></form></dialog>
     <script src="./app.js"></script>
   </body>
 </html>

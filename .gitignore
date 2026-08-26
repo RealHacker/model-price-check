@@ -2,6 +2,7 @@
 node_modules/
 
 # Environment and secrets
+config.json
 .env
 .env.*
 !.env.example
